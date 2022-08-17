@@ -1,12 +1,25 @@
+import { ListGroup, ListGroupItem } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
-import useMovieList from "../hooks/useMovieList";
+import useGenres from "../hooks/useGenres";
 
 const HomePage = () => {
-    const { isLoading, isError, error, data } = useMovieList();
-    console.log(data);
+    const { isLoading, isError, error, data } = useGenres();
+    const genres = data?.genres;
+    console.log(genres);
     return (
         <Container className="py-3">
             <h1>Welcome!</h1>
+            {isLoading ? (
+                "Loading"
+            ) : (
+                <ListGroup>
+                    {genres.map((genre) => (
+                        <ListGroup.Item key={genre.id}>
+                            {genre.name}
+                        </ListGroup.Item>
+                    ))}
+                </ListGroup>
+            )}
         </Container>
     );
 };

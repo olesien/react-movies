@@ -1,5 +1,6 @@
 import { ListGroup, ListGroupItem } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
+import { NavLink } from "react-router-dom";
 import useGenres from "../hooks/useGenres";
 
 const HomePage = () => {
@@ -14,7 +15,12 @@ const HomePage = () => {
             ) : (
                 <ListGroup>
                     {genres.map((genre) => (
-                        <ListGroup.Item key={genre.id}>
+                        <ListGroup.Item
+                            key={genre.id}
+                            as={NavLink}
+                            end
+                            to={"/category/" + genre.id}
+                        >
                             {genre.name}
                         </ListGroup.Item>
                     ))}

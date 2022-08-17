@@ -4,6 +4,7 @@ import Navigation from "./components/Navigation";
 import HomePage from "./pages/HomePage";
 import NotFound from "./pages/NotFound";
 import "./assets/scss/App.scss";
+import MoviesPage from "./pages/MoviesPage";
 const queryClient = new QueryClient();
 function App() {
     return (
@@ -13,6 +14,10 @@ function App() {
 
                 <Routes>
                     <Route path="/" element={<HomePage />} />
+                    <Route
+                        path="/category/:categoryId"
+                        element={<MoviesPage />}
+                    />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
             </QueryClientProvider>

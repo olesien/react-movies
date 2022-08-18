@@ -6,13 +6,27 @@ const apiKey = import.meta.env.VITE_API_KEY;
 //default URL
 axios.defaults.baseURL = "https://api.themoviedb.org/3/";
 
-const get = async (endpoint) => {
-    const res = await axios.get(endpoint + `?api_key=${apiKey}&language=en-US`);
+const testing = true;
+const slowtime = 1500; //ms
+
+const get = async (endpoint, queryParams = "") => {
+    const res = await axios.get(
+        `${endpoint}?api_key=${apiKey}&language=en-US${queryParams}`
+    );
+    testing && (await new Promise((r) => setTimeout(r, slowtime))); //slow it for testing
     return res.data;
 };
 
-const getMovies = () => {
+const getMovie = () => {
     return get("/movie/550");
+};
+
+const getMovies = (data) => {
+    const id = data.queryKey[1];
+    return get(
+        "/discover/movie",
+        `&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=[${id}]&with_watch_monetization_types=flatrate`
+    );
 };
 
 const getGenres = () => {
@@ -20,6 +34,7 @@ const getGenres = () => {
 };
 
 const exports = {
+    getMovie,
     getMovies,
     getGenres,
 };

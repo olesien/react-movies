@@ -37,7 +37,9 @@ export default function Movies({ id }) {
             <div className="center-block">
                 <AdvancedPagination
                     currentPage={movies.page}
-                    maxPages={movies.total_pages - 1}
+                    maxPages={
+                        movies.total_pages <= 500 ? movies.total_pages : 500
+                    }
                     newPage={changePage}
                 />
             </div>

@@ -39,7 +39,7 @@ function AdvancedPagination({ currentPage, maxPages, newPage }) {
                 {currentPage + 1}
             </Pagination.Item>
             <Pagination.Item
-                disabled={currentPage + 2 >= maxPages}
+                disabled={currentPage + 2 > maxPages}
                 onClick={() => newPage(currentPage + 2)}
             >
                 {currentPage + 2}

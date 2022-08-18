@@ -23,9 +23,13 @@ const getMovie = () => {
 
 const getMovies = (data) => {
     const id = data.queryKey[1];
+    let page = data.queryKey[2];
+    if (!page || page < 1) {
+        page === 1;
+    }
     return get(
         "/discover/movie",
-        `&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=[${id}]&with_watch_monetization_types=flatrate`
+        `&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=[${id}]&with_watch_monetization_types=flatrate`
     );
 };
 

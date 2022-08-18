@@ -1,1 +1,10 @@
-@import 'bootstrap/scss/bootstrap';
+@import "bootstrap/scss/bootstrap";
+
+.movie-img {
+    width: 7rem;
+}
+
+.center-block {
+    display: flex;
+    justify-content: center;
+}

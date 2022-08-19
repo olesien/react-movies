@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { Image } from "react-bootstrap";
 import RenderTable from "../RenderTable";
+import { NavLink } from "react-router-dom";
 
 export default function RenderMoviesTable({ movies }) {
     const results = movies.results;
@@ -18,7 +19,9 @@ export default function RenderMoviesTable({ movies }) {
             },
             {
                 Header: "Title",
-                accessor: "title",
+                Cell: ({ row: { original: movie } }) => (
+                    <NavLink to={`/movie/${movie.id}`}>{movie.title}</NavLink>
+                ),
             },
             {
                 Header: "Rating",

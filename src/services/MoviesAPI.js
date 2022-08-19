@@ -17,8 +17,9 @@ const get = async (endpoint, queryParams = "") => {
     return res.data;
 };
 
-const getMovie = () => {
-    return get("/movie/550");
+const getMovie = (data) => {
+    const id = data.queryKey[1];
+    return get(`/movie/${id}`);
 };
 
 const getMovies = (data) => {

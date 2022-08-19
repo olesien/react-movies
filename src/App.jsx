@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage";
 import NotFound from "./pages/NotFound";
 import "./assets/scss/App.scss";
 import MoviesPage from "./pages/MoviesPage";
+import MoviePage from "./pages/MoviePage";
 const queryClient = new QueryClient();
 function App() {
     return (
@@ -18,6 +19,7 @@ function App() {
                         path="/category/:categoryId"
                         element={<MoviesPage />}
                     />
+                    <Route path="/movie/:movieId" element={<MoviePage />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
             </QueryClientProvider>

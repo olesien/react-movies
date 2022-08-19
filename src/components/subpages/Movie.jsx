@@ -3,6 +3,8 @@ import WarningAlert from "../WarningAlert";
 import BasicSpinner from "../BasicSpinner";
 import { Image } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import Actors from "./Actors";
+import SimilarMovies from "./SimilarMovies";
 
 export default function Movie({ id }) {
     const {
@@ -68,6 +70,8 @@ export default function Movie({ id }) {
             <div className="right">
                 <h1>{movie.title}</h1>
                 <p>{movie.overview}</p>
+                <Actors />
+                <SimilarMovies />
             </div>
         </div>
     );

@@ -2,6 +2,7 @@ import useMovie from "../../hooks/useMovie";
 import WarningAlert from "../WarningAlert";
 import BasicSpinner from "../BasicSpinner";
 import { Image } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 
 export default function Movie({ id }) {
     const {
@@ -27,8 +28,47 @@ export default function Movie({ id }) {
                     className="thumbnail rounded "
                     alt={`Image of the movie ${movie.title}`}
                 />
+                <ul className="miscContainer">
+                    <li>
+                        <span>Release</span>
+                        <span>{movie.release_date}</span>
+                    </li>
+                    <li>
+                        <span>Populairty</span>
+                        <span>{movie.popularity}</span>
+                    </li>
+
+                    <li>
+                        <span>Rating</span>
+                        <span>
+                            {movie.vote_average} * ({movie.vote_count})
+                        </span>
+                    </li>
+                    {movie.revenue > 0 && (
+                        <li>
+                            <span>Revenue</span>
+                            <span>${movie.revenue}</span>
+                        </li>
+                    )}
+                    <li>
+                        <span>Genres</span>
+                        <span>
+                            {movie.genres.map((genre) => (
+                                <span key={genre.id}>
+                                    <NavLink to={"/category/" + genre.id}>
+                                        {genre.name}
+                                    </NavLink>
+                                    ,{" "}
+                                </span>
+                            ))}
+                        </span>
+                    </li>
+                </ul>
             </div>
-            <div className="right">r</div>
+            <div className="right">
+                <h1>{movie.title}</h1>
+                <p>{movie.overview}</p>
+            </div>
         </div>
     );
 }

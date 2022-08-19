@@ -16,4 +16,24 @@
     > * {
         flex: 1;
     }
+    .miscContainer {
+        list-style: none;
+        padding: 0;
+        padding-top: 1rem;
+        > li {
+            display: flex;
+            width: 100%;
+            max-width: 500px;
+            padding: 1rem;
+            > span {
+                flex: 1;
+            }
+            :nth-child(1) {
+                text-align: left;
+            }
+            :nth-child(2) {
+                text-align: right;
+            }
+        }
+    }
 }

@@ -3,7 +3,7 @@ import { Image } from "react-bootstrap";
 import RenderTable from "../RenderTable";
 import { NavLink } from "react-router-dom";
 
-export default function RenderMoviesTable({ movies }) {
+export default function RenderMoviesTable({ movies, categoryId }) {
     const results = movies.results;
     const columns = useMemo(
         () => [
@@ -20,7 +20,9 @@ export default function RenderMoviesTable({ movies }) {
             {
                 Header: "Title",
                 Cell: ({ row: { original: movie } }) => (
-                    <NavLink to={`/movie/${movie.id}`}>{movie.title}</NavLink>
+                    <NavLink to={`/movie/${movie.id}?categoryId=${categoryId}`}>
+                        {movie.title}
+                    </NavLink>
                 ),
             },
             {

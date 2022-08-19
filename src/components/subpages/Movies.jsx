@@ -43,7 +43,7 @@ export default function Movies({ id }) {
                     newPage={changePage}
                 />
             </div>
-            <RenderMoviesTable movies={movies} />
+            <RenderMoviesTable movies={movies} categoryId={id} />
         </div>
     );
 }

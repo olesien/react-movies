@@ -47,12 +47,24 @@ const getGenres = () => {
     return get("/genre/movie/list");
 };
 
+const getActor = (data) => {
+    const id = data.queryKey[1];
+    return get(`/person/${id}`);
+};
+
+const getActorMovies = (data) => {
+    const id = data.queryKey[1];
+    return get(`/person/${id}/movie_credits`);
+};
+
 const exports = {
     getMovie,
     getMovieCredits,
     getSimilarMovies,
     getMovies,
     getGenres,
+    getActor,
+    getActorMovies,
 };
 
 export default exports;

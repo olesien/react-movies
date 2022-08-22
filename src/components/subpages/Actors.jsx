@@ -54,9 +54,11 @@ export default function Actors({ id }) {
             <h3>Actors</h3>
             <RenderTable
                 columns={columns}
-                data={actors.cast.filter((actor, length) =>
-                    !loadedMore ? length < 3 : true
-                )}
+                data={actors.cast
+                    .filter((actor) => actor.profile_path)
+                    .filter((actor, length) =>
+                        !loadedMore ? length < 3 : true
+                    )}
             />
             <Button onClick={() => setLoadedMore((loadedMore) => !loadedMore)}>
                 {loadedMore ? "Hide" : "Load More"}

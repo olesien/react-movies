@@ -47,6 +47,30 @@ const getGenres = () => {
     return get("/genre/movie/list");
 };
 
+const getNowPlaying = (data) => {
+    let page = data.queryKey[1];
+    if (!page || page < 1) {
+        page === 1;
+    }
+    return get("/movie/now_playing", `&page=${page}`);
+};
+
+const getPopular = (data) => {
+    let page = data.queryKey[1];
+    if (!page || page < 1) {
+        page === 1;
+    }
+    return get("/movie/popular", `&page=${page}`);
+};
+
+const getTopRated = (data) => {
+    let page = data.queryKey[1];
+    if (!page || page < 1) {
+        page === 1;
+    }
+    return get("/movie/top_rated", `&page=${page}`);
+};
+
 const getActor = (data) => {
     const id = data.queryKey[1];
     return get(`/person/${id}`);
@@ -63,6 +87,9 @@ const exports = {
     getSimilarMovies,
     getMovies,
     getGenres,
+    getNowPlaying,
+    getPopular,
+    getTopRated,
     getActor,
     getActorMovies,
 };

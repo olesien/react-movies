@@ -3,5 +3,8 @@ import { useQuery } from "react-query";
 
 export default function useMovie(id) {
     console.log(id);
-    return useQuery(["movie", id], MoviesAPI.getMovie);
+    const movie = useQuery(["movie", id], MoviesAPI.getMovie);
+    const credits = useQuery(["moviecredits", id], MoviesAPI.getMovieCredits);
+    const similar = useQuery(["moviesimilar", id], MoviesAPI.getSimilarMovies);
+    return { movie, credits, similar };
 }

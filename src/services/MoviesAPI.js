@@ -6,7 +6,7 @@ const apiKey = import.meta.env.VITE_API_KEY;
 //default URL
 axios.defaults.baseURL = "https://api.themoviedb.org/3/";
 
-const testing = true;
+const testing = false;
 const slowtime = 1500; //ms
 
 const get = async (endpoint, queryParams = "") => {
@@ -22,6 +22,15 @@ const getMovie = (data) => {
     return get(`/movie/${id}`);
 };
 
+const getMovieCredits = (data) => {
+    const id = data.queryKey[1];
+    return get(`/movie/${id}/credits`);
+};
+
+const getSimilarMovies = (data) => {
+    const id = data.queryKey[1];
+    return get(`/movie/${id}/similar`);
+};
 const getMovies = (data) => {
     const id = data.queryKey[1];
     let page = data.queryKey[2];
@@ -40,6 +49,8 @@ const getGenres = () => {
 
 const exports = {
     getMovie,
+    getMovieCredits,
+    getSimilarMovies,
     getMovies,
     getGenres,
 };

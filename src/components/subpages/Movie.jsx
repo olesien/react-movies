@@ -7,13 +7,8 @@ import Actors from "./Actors";
 import SimilarMovies from "./SimilarMovies";
 
 export default function Movie({ id }) {
-    const {
-        isLoading,
-        isPreviousData,
-        isError,
-        error,
-        data: movie,
-    } = useMovie(id);
+    const { movie: data } = useMovie(id);
+    const { isLoading, isPreviousData, isError, error, data: movie } = data;
 
     if (isError) {
         return <WarningAlert errorMessage={error.message} />;
@@ -66,12 +61,12 @@ export default function Movie({ id }) {
                         </span>
                     </li>
                 </ul>
+                <SimilarMovies id={id} />
             </div>
             <div className="right">
                 <h1>{movie.title}</h1>
                 <p>{movie.overview}</p>
-                <Actors />
-                <SimilarMovies />
+                <Actors id={id} />
             </div>
         </div>
     );

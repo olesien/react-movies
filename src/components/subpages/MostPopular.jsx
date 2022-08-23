@@ -35,6 +35,7 @@ export default function MostPopular() {
     return (
         <div>
             <div className="center-block">
+                {/* <Search /> */}
                 <AdvancedPagination
                     currentPage={movies.page}
                     maxPages={

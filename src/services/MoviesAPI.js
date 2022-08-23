@@ -52,7 +52,7 @@ const getNowPlaying = (data) => {
     if (!page || page < 1) {
         page === 1;
     }
-    return get("/movie/now_playing", `&page=${page}`);
+    return get("/movie/now_playing", `&page=${page}&include_adult=false`);
 };
 
 const getMostPopular = (data) => {
@@ -60,7 +60,7 @@ const getMostPopular = (data) => {
     if (!page || page < 1) {
         page === 1;
     }
-    return get("/movie/popular", `&page=${page}`);
+    return get("/movie/popular", `&page=${page}&include_adult=false`);
 };
 
 const getTopRated = (data) => {
@@ -68,7 +68,7 @@ const getTopRated = (data) => {
     if (!page || page < 1) {
         page === 1;
     }
-    return get("/movie/top_rated", `&page=${page}`);
+    return get("/movie/top_rated", `&page=${page}&include_adult=false`);
 };
 
 const getActor = (data) => {

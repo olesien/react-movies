@@ -35,6 +35,7 @@ export default function NowPlaying() {
     return (
         <div>
             <div className="center-block">
+                {/* <Search /> */}
                 <AdvancedPagination
                     currentPage={movies.page}
                     maxPages={

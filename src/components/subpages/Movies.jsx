@@ -4,6 +4,7 @@ import BasicSpinner from "../BasicSpinner";
 import RenderMoviesTable from "./RenderMoviesTable";
 import AdvancedPagination from "../AdvancedPagination";
 import { Link, Route, Routes, useSearchParams } from "react-router-dom";
+import Search from "../Search";
 
 export default function Movies({ id }) {
     let [searchParams, setSearchParams] = useSearchParams();
@@ -35,6 +36,7 @@ export default function Movies({ id }) {
     return (
         <div>
             <div className="center-block">
+                <Search />
                 <AdvancedPagination
                     currentPage={movies.page}
                     maxPages={

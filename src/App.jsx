@@ -7,6 +7,9 @@ import "./assets/scss/App.scss";
 import MoviesPage from "./pages/MoviesPage";
 import MoviePage from "./pages/MoviePage";
 import ActorPage from "./pages/ActorPage";
+import NowPlayingPage from "./pages/NowPlayingPage";
+import MostPopularPage from "./pages/MostPopularPage";
+import TopRatedPage from "./pages/TopRatedPage";
 const queryClient = new QueryClient();
 function App() {
     return (
@@ -20,6 +23,9 @@ function App() {
                         path="/category/:categoryId"
                         element={<MoviesPage />}
                     />
+                    <Route path="/now-playing" element={<NowPlayingPage />} />
+                    <Route path="/most-popular" element={<MostPopularPage />} />
+                    <Route path="/top-rated" element={<TopRatedPage />} />
                     <Route path="/movie/:movieId" element={<MoviePage />} />
                     <Route path="/actor/:actorId" element={<ActorPage />} />
                     <Route path="*" element={<NotFound />} />

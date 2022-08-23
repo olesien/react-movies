@@ -55,7 +55,7 @@ const getNowPlaying = (data) => {
     return get("/movie/now_playing", `&page=${page}`);
 };
 
-const getPopular = (data) => {
+const getMostPopular = (data) => {
     let page = data.queryKey[1];
     if (!page || page < 1) {
         page === 1;
@@ -88,7 +88,7 @@ const exports = {
     getMovies,
     getGenres,
     getNowPlaying,
-    getPopular,
+    getMostPopular,
     getTopRated,
     getActor,
     getActorMovies,

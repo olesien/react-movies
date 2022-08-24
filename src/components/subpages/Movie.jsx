@@ -7,10 +7,33 @@ import Actors from "./Actors";
 import SimilarMovies from "./SimilarMovies";
 
 import RenderDetails from "../RenderDetails";
+import useMovieHistory from "../../hooks/useMovieHistory";
+import React, { useState, useEffect } from "react";
 
 export default function Movie({ id }) {
     const { movie: data } = useMovie(id);
     const { isLoading, isPreviousData, isError, error, data: movie } = data;
+
+    const [prevMovies, changePrevMovies] = useMovieHistory();
+    useEffect(() => {
+        if (!movie) return;
+        console.log(prevMovies);
+        if (!prevMovies || prevMovies.length < 1) {
+            return changePrevMovies([movie]);
+        }
+        //Filter out current movie
+        let newPrevMovies = prevMovies.filter(
+            (prevMovie) => prevMovie.id != movie.id
+        );
+        if (newPrevMovies.length > 10) {
+            newPrevMovies.pop();
+        }
+        newPrevMovies.unshift(movie);
+
+        changePrevMovies(newPrevMovies);
+
+        console.log(newPrevMovies);
+    }, [movie]);
 
     if (isError) {
         return <WarningAlert errorMessage={error.message} />;

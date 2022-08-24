@@ -1,6 +1,7 @@
 import { Image } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 export default function MovieList({ movies }) {
+    console.log(movies);
     return (
         <>
             {movies.map((movie, index) => (

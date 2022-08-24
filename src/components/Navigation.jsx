@@ -2,7 +2,7 @@ import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import { Link, NavLink } from "react-router-dom";
-import SearchBar from "./SerachBar";
+import SearchBar from "./SearchBar";
 
 const Navigation = () => {
     return (

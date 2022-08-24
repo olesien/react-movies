@@ -2,10 +2,11 @@ import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import { Link, NavLink } from "react-router-dom";
+import SearchBar from "./SerachBar";
 
 const Navigation = () => {
     return (
-        <Navbar bg="dark" variant="dark" expand="md">
+        <Navbar bg="light" expand="md">
             <Container>
                 <Navbar.Brand as={Link} to="/">
                     React Movies
@@ -26,6 +27,7 @@ const Navigation = () => {
                         <Nav.Link as={NavLink} end to="/top-rated">
                             Top Rated
                         </Nav.Link>
+                        <SearchBar />
                     </Nav>
                 </Navbar.Collapse>
             </Container>

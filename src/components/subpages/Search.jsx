@@ -1,11 +1,11 @@
-import useMovieList from "../../hooks/useMovieList";
+import useSearch from "../../hooks/useSearch";
 import WarningAlert from "../WarningAlert";
 import BasicSpinner from "../BasicSpinner";
 import RenderMoviesTable from "./RenderMoviesTable";
 import AdvancedPagination from "../AdvancedPagination";
 import { Link, Route, Routes, useSearchParams } from "react-router-dom";
 
-export default function Movies({ id }) {
+export default function Search({ search }) {
     let [searchParams, setSearchParams] = useSearchParams();
     let page = searchParams.get("page");
     const {
@@ -14,7 +14,7 @@ export default function Movies({ id }) {
         isError,
         error,
         data: movies,
-    } = useMovieList(id, page);
+    } = useSearch(page, search);
 
     console.log(movies);
 
@@ -32,6 +32,9 @@ export default function Movies({ id }) {
         return <BasicSpinner />;
     }
     //return <p>Hi</p>;
+    if (movies.results.length < 1) {
+        return <h1>Sorry but no movies could be found with this name!</h1>;
+    }
     return (
         <div>
             <div className="center-block">
@@ -43,7 +46,8 @@ export default function Movies({ id }) {
                     newPage={changePage}
                 />
             </div>
-            <RenderMoviesTable movies={movies} categoryId={id} />
+
+            <RenderMoviesTable movies={movies} categoryId={0} />
         </div>
     );
 }

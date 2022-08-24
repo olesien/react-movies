@@ -10,6 +10,7 @@ import ActorPage from "./pages/ActorPage";
 import NowPlayingPage from "./pages/NowPlayingPage";
 import MostPopularPage from "./pages/MostPopularPage";
 import TopRatedPage from "./pages/TopRatedPage";
+import SearchPage from "./pages/SearchPage";
 const queryClient = new QueryClient();
 function App() {
     return (
@@ -23,6 +24,7 @@ function App() {
                         path="/category/:categoryId"
                         element={<MoviesPage />}
                     />
+                    <Route path="/search/:search" element={<SearchPage />} />
                     <Route path="/now-playing" element={<NowPlayingPage />} />
                     <Route path="/most-popular" element={<MostPopularPage />} />
                     <Route path="/top-rated" element={<TopRatedPage />} />

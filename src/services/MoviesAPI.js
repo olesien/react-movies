@@ -37,9 +37,26 @@ const getMovies = (data) => {
     if (!page || page < 1) {
         page === 1;
     }
+
     return get(
         "/discover/movie",
         `&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=[${id}]&with_watch_monetization_types=flatrate`
+    );
+};
+
+const getSearch = (data) => {
+    let page = data.queryKey[1];
+    let search = data.queryKey[2];
+    if (!page || page < 1) {
+        page === 1;
+    }
+
+    if (!search) {
+        search === "";
+    }
+    return get(
+        "/search/movie",
+        `&language=en-US&query=${search}&page=${page}&include_adult=false`
     );
 };
 
@@ -86,6 +103,7 @@ const exports = {
     getMovieCredits,
     getSimilarMovies,
     getMovies,
+    getSearch,
     getGenres,
     getNowPlaying,
     getMostPopular,

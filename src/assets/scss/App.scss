@@ -17,6 +17,7 @@
     }
     ul {
         padding-bottom: 0;
+        padding-top: 0;
     }
 }
 
@@ -48,6 +49,14 @@
             }
         }
     }
+}
+
+.popular-period {
+    margin: 0 2rem;
+}
+
+.pagination {
+    margin: 0 4rem;
 }
 
 @media all and (min-width: 750px) {

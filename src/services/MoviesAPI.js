@@ -35,7 +35,7 @@ const getMovies = (data) => {
     const id = data.queryKey[1];
     let page = data.queryKey[2];
     if (!page || page < 1) {
-        page === 1;
+        page = 1;
     }
 
     return get(
@@ -48,7 +48,7 @@ const getSearch = (data) => {
     let page = data.queryKey[1];
     let search = data.queryKey[2];
     if (!page || page < 1) {
-        page === 1;
+        page = 1;
     }
 
     if (!search) {
@@ -67,7 +67,7 @@ const getGenres = () => {
 const getNowPlaying = (data) => {
     let page = data.queryKey[1];
     if (!page || page < 1) {
-        page === 1;
+        page = 1;
     }
     return get("/movie/now_playing", `&page=${page}&include_adult=false`);
 };
@@ -75,15 +75,24 @@ const getNowPlaying = (data) => {
 const getMostPopular = (data) => {
     let page = data.queryKey[1];
     if (!page || page < 1) {
-        page === 1;
+        page = 1;
     }
-    return get("/movie/popular", `&page=${page}&include_adult=false`);
+
+    let popularPeriod = Number(data.queryKey[2]);
+    if (!popularPeriod || popularPeriod < 1) {
+        popularPeriod === 1;
+    } else {
+    }
+    return get(
+        `/trending/all/${popularPeriod === 1 ? "day" : "week"}`,
+        `&page=${page}&include_adult=false`
+    );
 };
 
 const getTopRated = (data) => {
     let page = data.queryKey[1];
     if (!page || page < 1) {
-        page === 1;
+        page = 1;
     }
     return get("/movie/top_rated", `&page=${page}&include_adult=false`);
 };

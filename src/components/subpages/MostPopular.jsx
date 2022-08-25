@@ -2,19 +2,21 @@ import WarningAlert from "../WarningAlert";
 import BasicSpinner from "../BasicSpinner";
 import RenderMoviesTable from "../RenderMoviesTable";
 import AdvancedPagination from "../AdvancedPagination";
-import { Link, Route, Routes, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import useMostPopular from "../../hooks/useMostPopular";
+import SelectPopularPeriod from "./SelectPopularPeriod";
 
 export default function MostPopular() {
     let [searchParams, setSearchParams] = useSearchParams();
     let page = searchParams.get("page");
+    let popularPeriod = searchParams.get("popular-period");
     const {
         isLoading,
         isPreviousData,
         isError,
         error,
         data: movies,
-    } = useMostPopular(page);
+    } = useMostPopular(page, popularPeriod);
 
     console.log(movies);
 
@@ -23,7 +25,10 @@ export default function MostPopular() {
             return;
         }
         console.log(page);
-        setSearchParams({ page });
+        setSearchParams({
+            page,
+            "popular-period": popularPeriod ? popularPeriod : "1",
+        });
     };
     if (isError) {
         return <WarningAlert errorMessage={error.message} />;
@@ -36,6 +41,7 @@ export default function MostPopular() {
         <div>
             <div className="center-block">
                 {/* <Search /> */}
+                <SelectPopularPeriod popularPeriod={popularPeriod} />
                 <AdvancedPagination
                     currentPage={movies.page}
                     maxPages={

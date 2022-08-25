@@ -25,7 +25,9 @@ export default function RenderMoviesTable({
                     <Image
                         src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
                         className="thumbnail rounded movie-img"
-                        alt={`Image of the movie ${movie.title}`}
+                        alt={`Image of the movie ${
+                            movie.title ? movie.title : movie.name
+                        }`}
                     ></Image>
                 ),
             },
@@ -37,7 +39,7 @@ export default function RenderMoviesTable({
                             page ? page : 1
                         }&type=${type}${endUrl}`}
                     >
-                        {movie.title}
+                        {movie.title ? movie.title : movie.name}
                     </NavLink>
                 ),
             },
@@ -60,5 +62,15 @@ export default function RenderMoviesTable({
         ],
         []
     );
-    return <RenderTable columns={columns} data={results} />;
+    return (
+        <RenderTable
+            columns={columns}
+            data={results.map((movie) => {
+                return {
+                    ...movie,
+                    release_date: movie.release_date ? movie.release_date : "-",
+                };
+            })}
+        />
+    );
 }

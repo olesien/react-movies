@@ -6,11 +6,18 @@ import RenderTable from "../RenderTable";
 import { Button, Image } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 
-export default function Actors({ id }) {
+export default function Actors({ id, categoryId, type, search, page }) {
     const { credits: data } = useMovie(id);
     const { isLoading, isPreviousData, isError, error, data: actors } = data;
     const [loadedMore, setLoadedMore] = useState(false);
     console.log(actors);
+    let endUrl = ``;
+    if (type === "category") {
+        endUrl = `&categoryId=${categoryId}`;
+    } else if (type === "search") {
+        endUrl = `&search=${search}`;
+    }
+
     const columns = useMemo(
         () => [
             {
@@ -27,7 +34,9 @@ export default function Actors({ id }) {
                 Header: "Name",
                 Cell: ({ row: { original: actor } }) => (
                     <NavLink
-                        to={`/actor/${actor.id}?movieId=${0}&categoryId=${0}`}
+                        to={`/actor/${actor.id}?movieId=${id}&page=${
+                            page ? page : 1
+                        }&type=${type}${endUrl}`}
                     >
                         {actor.name}
                     </NavLink>

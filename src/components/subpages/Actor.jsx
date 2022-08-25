@@ -5,7 +5,7 @@ import RenderDetails from "../RenderDetails";
 import WarningAlert from "../WarningAlert";
 import BasicSpinner from "../BasicSpinner";
 
-export default function Actor({ id }) {
+export default function Actor({ id, categoryId, search, page, type }) {
     const { actor: data } = useActor(id);
     const { isLoading, isPreviousData, isError, error, data: actor } = data;
     console.log(actor);
@@ -43,7 +43,15 @@ export default function Actor({ id }) {
                 },
             ]}
             leftslot={<></>}
-            rightslot={<ActorMovies id={id} />}
+            rightslot={
+                <ActorMovies
+                    id={id}
+                    categoryId={categoryId}
+                    type={type}
+                    search={search}
+                    page={page}
+                />
+            }
         />
     );
 }

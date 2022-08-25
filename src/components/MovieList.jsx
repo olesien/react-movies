@@ -1,14 +1,21 @@
 import { Image } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
-export default function MovieList({ movies }) {
-    console.log(movies);
+export default function MovieList({ movies, categoryId, type, search, page }) {
+    let endUrl = ``;
+    if (type === "category") {
+        endUrl = `&categoryId=${categoryId}`;
+    } else if (type === "search") {
+        endUrl = `&search=${search}`;
+    }
     return (
         <>
             {movies.map((movie, index) => (
                 <span key={index}>
                     {movie.poster_path ? (
                         <NavLink
-                            to={`/movie/${movie.id}?categoryId=${0}`}
+                            to={`/movie/${movie.id}?page=${
+                                page ? page : 1
+                            }&type=${type}${endUrl}`}
                             key={index}
                         >
                             <Image

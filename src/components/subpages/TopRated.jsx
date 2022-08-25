@@ -1,6 +1,6 @@
 import WarningAlert from "../WarningAlert";
 import BasicSpinner from "../BasicSpinner";
-import RenderMoviesTable from "./RenderMoviesTable";
+import RenderMoviesTable from "../RenderMoviesTable";
 import AdvancedPagination from "../AdvancedPagination";
 import { Link, Route, Routes, useSearchParams } from "react-router-dom";
 import useTopRated from "../../hooks/useTopRated";
@@ -44,7 +44,13 @@ export default function TopRated() {
                     newPage={changePage}
                 />
             </div>
-            <RenderMoviesTable movies={movies} categoryId={0} />
+            <RenderMoviesTable
+                movies={movies}
+                categoryId={0}
+                type={"top-rated"}
+                search={null}
+                page={page}
+            />
         </div>
     );
 }

@@ -10,7 +10,7 @@ import RenderDetails from "../RenderDetails";
 import useMovieHistory from "../../hooks/useMovieHistory";
 import React, { useState, useEffect } from "react";
 
-export default function Movie({ id }) {
+export default function Movie({ id, categoryId, search, page, type }) {
     const { movie: data } = useMovie(id);
     const { isLoading, isPreviousData, isError, error, data: movie } = data;
 
@@ -78,58 +78,24 @@ export default function Movie({ id }) {
                     )),
                 },
             ]}
-            leftslot={<SimilarMovies id={id} />}
-            rightslot={<Actors id={id} />}
+            leftslot={
+                <SimilarMovies
+                    id={id}
+                    categoryId={categoryId}
+                    type={type}
+                    search={search}
+                    page={page}
+                />
+            }
+            rightslot={
+                <Actors
+                    id={id}
+                    categoryId={categoryId}
+                    type={type}
+                    search={search}
+                    page={page}
+                />
+            }
         />
     );
-    // return (
-    //     <div className="movieContainer">
-    //         <div className="left">
-    //             <Image
-    //                 src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
-    //                 className="thumbnail rounded "
-    //                 alt={`Image of the movie ${movie.title}`}
-    //             />
-    //             <RenderMisc
-    //                 data={[
-    //                     {
-    //                         name: "Release",
-    //                         info: movie.release_date,
-    //                     },
-    //                     {
-    //                         name: "Populairty",
-    //                         info: movie.popularity,
-    //                     },
-    //                     {
-    //                         name: "Rating",
-    //                         info: Math.round(
-    //                             movie.vote_average * movie.vote_count
-    //                         ),
-    //                     },
-    //                     {
-    //                         name: "Revenue",
-    //                         info: movie.revenue,
-    //                     },
-    //                     {
-    //                         name: "Revenue",
-    //                         info: movie.genres.map((genre) => (
-    //                             <span key={genre.id}>
-    //                                 <NavLink to={"/category/" + genre.id}>
-    //                                     {genre.name}
-    //                                 </NavLink>
-    //                                 ,
-    //                             </span>
-    //                         )),
-    //                     },
-    //                 ]}
-    //             />
-    //             <SimilarMovies id={id} />
-    //         </div>
-    //         <div className="right">
-    //             <h1>{movie.title}</h1>
-    //             <p>{movie.overview}</p>
-    //             <Actors id={id} />
-    //         </div>
-    //     </div>
-    // );
 }

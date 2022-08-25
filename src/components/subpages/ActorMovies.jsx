@@ -4,7 +4,7 @@ import BasicSpinner from "../BasicSpinner";
 
 import MovieList from "../MovieList";
 
-export default function ActorMovies({ id }) {
+export default function ActorMovies({ id, categoryId, search, page, type }) {
     const { actorMovies: data } = useActor(id);
     const {
         isLoading,
@@ -28,6 +28,10 @@ export default function ActorMovies({ id }) {
                     movies={actorMovies.cast.filter(
                         (movie, index) => index < 10
                     )}
+                    categoryId={categoryId}
+                    type={type}
+                    search={search}
+                    page={page}
                 />
             }
         </div>

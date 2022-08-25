@@ -1,14 +1,20 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
-import { useSearchParams, NavLink } from "react-router-dom";
+import { useSearchParams, NavLink, useNavigate } from "react-router-dom";
 
 export default function SearchBar() {
     let [searchParams, setSearchParams] = useSearchParams();
     const initial = searchParams.get("search");
     const [search, setSearch] = useState(initial ? initial : "");
+    let navigate = useNavigate();
+    const submit = (e) => {
+        e.preventDefault();
+        if (search.length < 1) return;
+        navigate(`search/${search}`);
+    };
     // console.log(search);
     return (
-        <Form className="d-flex ps-2">
+        <Form className="d-flex ps-2" onSubmit={submit}>
             <Form.Control
                 type="search"
                 placeholder="Search"

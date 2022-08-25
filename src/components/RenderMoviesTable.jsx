@@ -1,10 +1,22 @@
 import { useMemo } from "react";
 import { Image } from "react-bootstrap";
-import RenderTable from "../RenderTable";
+import RenderTable from "./RenderTable";
 import { NavLink } from "react-router-dom";
 
-export default function RenderMoviesTable({ movies, categoryId }) {
+export default function RenderMoviesTable({
+    movies,
+    categoryId,
+    search,
+    page,
+    type,
+}) {
     const results = movies.results;
+    let endUrl = ``;
+    if (type === "category") {
+        endUrl = `&categoryId=${categoryId}`;
+    } else if (type === "search") {
+        endUrl = `&search=${search}`;
+    }
     const columns = useMemo(
         () => [
             {
@@ -20,7 +32,11 @@ export default function RenderMoviesTable({ movies, categoryId }) {
             {
                 Header: "Title",
                 Cell: ({ row: { original: movie } }) => (
-                    <NavLink to={`/movie/${movie.id}?categoryId=${categoryId}`}>
+                    <NavLink
+                        to={`/movie/${movie.id}?page=${
+                            page ? page : 1
+                        }&type=${type}${endUrl}`}
+                    >
                         {movie.title}
                     </NavLink>
                 ),

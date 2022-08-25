@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 
 import MovieList from "../MovieList";
 
-export default function SimilarMovies({ id }) {
+export default function SimilarMovies({ id, categoryId, search, page, type }) {
     const { similar: data } = useMovie(id);
     const {
         isLoading,
@@ -25,7 +25,13 @@ export default function SimilarMovies({ id }) {
     return (
         <div>
             <h3>Similar Movies</h3>
-            <MovieList movies={similarMovies.results} />
+            <MovieList
+                movies={similarMovies.results}
+                categoryId={categoryId}
+                type={type}
+                search={search}
+                page={page}
+            />
         </div>
     );
 }

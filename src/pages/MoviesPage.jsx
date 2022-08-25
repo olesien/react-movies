@@ -13,7 +13,7 @@ export default function MoviesPage() {
                 progress={[
                     { name: "Home", active: false, url: "/" },
                     {
-                        name: "Movies",
+                        name: "category",
                         active: true,
                         url: `/category/${categoryId}/`,
                     },

@@ -59,8 +59,8 @@ export default function Actors({ id, categoryId, type, search, page }) {
     }
 
     return (
-        <div>
-            <h3>Actors</h3>
+        <div className="actors">
+            <h3 className="text-center">Actors</h3>
             <RenderTable
                 columns={columns}
                 data={actors.cast

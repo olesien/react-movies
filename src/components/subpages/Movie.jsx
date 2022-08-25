@@ -4,7 +4,7 @@ import BasicSpinner from "../BasicSpinner";
 
 import { NavLink } from "react-router-dom";
 import Actors from "./Actors";
-import SimilarMovies from "./SimilarMovies";
+import SimilarMovies from "../SimilarMovies";
 
 import RenderDetails from "../RenderDetails";
 import useMovieHistory from "../../hooks/useMovieHistory";

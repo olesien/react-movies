@@ -23,7 +23,11 @@ export default function RenderMoviesTable({
                 Header: "Img",
                 Cell: ({ row: { original: movie } }) => (
                     <Image
-                        src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
+                        src={`https://image.tmdb.org/t/p/w500/${
+                            movie.backdrop_path
+                                ? movie.backdrop_path
+                                : movie.poster_path
+                        }`}
                         className="thumbnail rounded movie-img"
                         alt={`Image of the movie ${
                             movie.title ? movie.title : movie.name

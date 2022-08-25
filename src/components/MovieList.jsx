@@ -8,9 +8,9 @@ export default function MovieList({ movies, categoryId, type, search, page }) {
         endUrl = `&search=${search}`;
     }
     return (
-        <>
+        <ul className="poster-list">
             {movies.map((movie, index) => (
-                <span key={index}>
+                <li key={index}>
                     {movie.poster_path ? (
                         <NavLink
                             to={`/movie/${movie.id}?page=${
@@ -27,8 +27,8 @@ export default function MovieList({ movies, categoryId, type, search, page }) {
                     ) : (
                         <></>
                     )}
-                </span>
+                </li>
             ))}
-        </>
+        </ul>
     );
 }

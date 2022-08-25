@@ -1,8 +1,8 @@
-import useActor from "../../hooks/useActor";
-import WarningAlert from "../WarningAlert";
-import BasicSpinner from "../BasicSpinner";
+import useActor from "../hooks/useActor";
+import WarningAlert from "./WarningAlert";
+import BasicSpinner from "./BasicSpinner";
 
-import MovieList from "../MovieList";
+import MovieList from "./MovieList";
 
 export default function ActorMovies({ id, categoryId, search, page, type }) {
     const { actorMovies: data } = useActor(id);

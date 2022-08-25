@@ -1,7 +1,7 @@
 import React from "react";
 import useActor from "../../hooks/useActor";
-import ActorMovies from "./ActorMovies";
-import RenderDetails from "../RenderDetails";
+import ActorMovies from "../ActorMovies";
+import RenderDetails from "../renders/RenderDetails";
 import WarningAlert from "../WarningAlert";
 import BasicSpinner from "../BasicSpinner";
 

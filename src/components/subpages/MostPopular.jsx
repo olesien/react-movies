@@ -1,10 +1,10 @@
 import WarningAlert from "../WarningAlert";
 import BasicSpinner from "../BasicSpinner";
-import RenderMoviesTable from "../RenderMoviesTable";
+import RenderMoviesTable from "../renders/RenderMoviesTable";
 import AdvancedPagination from "../AdvancedPagination";
 import { useSearchParams } from "react-router-dom";
 import useMostPopular from "../../hooks/useMostPopular";
-import SelectPopularPeriod from "./SelectPopularPeriod";
+import SelectPopularPeriod from "../SelectPopularPeriod";
 
 export default function MostPopular() {
     let [searchParams, setSearchParams] = useSearchParams();

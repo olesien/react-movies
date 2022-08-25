@@ -3,10 +3,10 @@ import WarningAlert from "../WarningAlert";
 import BasicSpinner from "../BasicSpinner";
 
 import { NavLink } from "react-router-dom";
-import Actors from "./Actors";
+import Actors from "../Actors";
 import SimilarMovies from "../SimilarMovies";
 
-import RenderDetails from "../RenderDetails";
+import RenderDetails from "../renders/RenderDetails";
 import useMovieHistory from "../../hooks/useMovieHistory";
 import React, { useState, useEffect } from "react";
 
@@ -60,7 +60,7 @@ export default function Movie({ id, categoryId, search, page, type }) {
                 },
                 {
                     name: "Rating",
-                    info: Math.round(movie.vote_average * movie.vote_count),
+                    info: `${movie.vote_average}* (${movie.vote_count})`,
                 },
                 {
                     name: "Revenue",

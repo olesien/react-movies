@@ -1,7 +1,7 @@
 import useSearch from "../../hooks/useSearch";
 import WarningAlert from "../WarningAlert";
 import BasicSpinner from "../BasicSpinner";
-import RenderMoviesTable from "../RenderMoviesTable";
+import RenderMoviesTable from "../renders/RenderMoviesTable";
 import AdvancedPagination from "../AdvancedPagination";
 import { Link, Route, Routes, useSearchParams } from "react-router-dom";
 

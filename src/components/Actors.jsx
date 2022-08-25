@@ -1,8 +1,8 @@
-import useMovie from "../../hooks/useMovie";
-import WarningAlert from "../WarningAlert";
-import BasicSpinner from "../BasicSpinner";
+import useMovie from "../hooks/useMovie";
+import WarningAlert from "./WarningAlert";
+import BasicSpinner from "./BasicSpinner";
 import { useMemo, useState } from "react";
-import RenderTable from "../RenderTable";
+import RenderTable from "./renders/RenderTable";
 import { Button, Image } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 
@@ -24,8 +24,8 @@ export default function Actors({ id, categoryId, type, search, page }) {
                 Header: "Img",
                 Cell: ({ row: { original: actor } }) => (
                     <Image
-                        src={`https://image.tmdb.org/t/p/w500/${actor.profile_path}`}
-                        className="thumbnail rounded movie-img"
+                        src={`https://image.tmdb.org/t/p/w200/${actor.profile_path}`}
+                        className="thumbnail rounded actor-img"
                         alt={`Image of the actor ${actor.name}`}
                     ></Image>
                 ),

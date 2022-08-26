@@ -5,6 +5,7 @@ import { useMemo, useState } from "react";
 import RenderTable from "./renders/RenderTable";
 import { Button, Image } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import portraitImg from "../assets/portrait.png";
 
 export default function Actors({ id, categoryId, type, search, page }) {
     const { credits: data } = useMovie(id);
@@ -24,7 +25,11 @@ export default function Actors({ id, categoryId, type, search, page }) {
                 Header: "Img",
                 Cell: ({ row: { original: actor } }) => (
                     <Image
-                        src={`https://image.tmdb.org/t/p/w200/${actor.profile_path}`}
+                        src={
+                            actor.profile_path
+                                ? `https://image.tmdb.org/t/p/w200/${actor.profile_path}`
+                                : portraitImg
+                        }
                         className="thumbnail rounded actor-img"
                         alt={`Image of the actor ${actor.name}`}
                     ></Image>

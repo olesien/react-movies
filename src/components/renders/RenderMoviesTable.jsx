@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import { Image } from "react-bootstrap";
 import RenderTable from "./RenderTable";
 import { NavLink } from "react-router-dom";
+import backdropImg from "../../assets/backdrop.png";
 
 export default function RenderMoviesTable({
     movies,
@@ -23,11 +24,11 @@ export default function RenderMoviesTable({
                 Header: "Img",
                 Cell: ({ row: { original: movie } }) => (
                     <Image
-                        src={`https://image.tmdb.org/t/p/w500/${
+                        src={
                             movie.backdrop_path
-                                ? movie.backdrop_path
-                                : movie.poster_path
-                        }`}
+                                ? `https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`
+                                : backdropImg
+                        }
                         className="thumbnail rounded movie-img"
                         alt={`Image of the movie ${
                             movie.title ? movie.title : movie.name

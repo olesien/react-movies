@@ -9,13 +9,7 @@ import MovieList from "./MovieList";
 export default function SimilarMovies({ id, categoryId, search, page, type }) {
     const [loadedMore, setLoadedMore] = useState(false);
     const { similar: data } = useMovie(id);
-    const {
-        isLoading,
-        isPreviousData,
-        isError,
-        error,
-        data: similarMovies,
-    } = data;
+    const { isLoading, isError, error, data: similarMovies } = data;
     if (isError) {
         return <WarningAlert errorMessage={error.message} />;
     }

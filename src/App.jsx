@@ -1,4 +1,4 @@
-import { QueryClient, QueryClientProvider, useQuery } from "react-query";
+import { QueryClient, QueryClientProvider } from "react-query";
 import { Routes, Route } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import HomePage from "./pages/HomePage";
@@ -11,6 +11,7 @@ import NowPlayingPage from "./pages/NowPlayingPage";
 import MostPopularPage from "./pages/MostPopularPage";
 import TopRatedPage from "./pages/TopRatedPage";
 import SearchPage from "./pages/SearchPage";
+import React from "react";
 const queryClient = new QueryClient();
 function App() {
     return (

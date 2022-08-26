@@ -3,7 +3,7 @@ import WarningAlert from "../WarningAlert";
 import BasicSpinner from "../BasicSpinner";
 import RenderMoviesTable from "../renders/RenderMoviesTable";
 import AdvancedPagination from "../AdvancedPagination";
-import { Link, Route, Routes, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 
 export default function Search({ search }) {
     let [searchParams, setSearchParams] = useSearchParams();

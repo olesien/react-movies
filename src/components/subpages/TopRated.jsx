@@ -2,7 +2,7 @@ import WarningAlert from "../WarningAlert";
 import BasicSpinner from "../BasicSpinner";
 import RenderMoviesTable from "../renders/RenderMoviesTable";
 import AdvancedPagination from "../AdvancedPagination";
-import { Link, Route, Routes, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import useTopRated from "../../hooks/useTopRated";
 
 export default function TopRated() {

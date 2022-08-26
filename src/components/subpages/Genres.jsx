@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import BasicSpinner from "../BasicSpinner";
-import { ListGroup, ListGroupItem } from "react-bootstrap";
+import { ListGroup } from "react-bootstrap";
 import WarningAlert from "../WarningAlert";
 import useGenres from "../../hooks/useGenres";
 

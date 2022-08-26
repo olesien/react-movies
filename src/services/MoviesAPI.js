@@ -81,7 +81,6 @@ const getMostPopular = (data) => {
     let popularPeriod = Number(data.queryKey[2]);
     if (!popularPeriod || popularPeriod < 1) {
         popularPeriod === 1;
-    } else {
     }
     return get(
         `/trending/all/${popularPeriod === 1 ? "day" : "week"}`,

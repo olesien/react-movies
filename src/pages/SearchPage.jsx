@@ -1,4 +1,3 @@
-import Movies from "../components/subpages/Movies";
 import { useParams } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import NavStatus from "../components/NavStatus";

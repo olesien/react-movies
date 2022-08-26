@@ -7,7 +7,7 @@ import BasicSpinner from "../BasicSpinner";
 
 export default function Actor({ id, categoryId, search, page, type }) {
     const { actor: data } = useActor(id);
-    const { isLoading, isPreviousData, isError, error, data: actor } = data;
+    const { isLoading, isError, error, data: actor } = data;
     console.log(actor);
 
     if (isError) {

@@ -9,7 +9,7 @@ import portraitImg from "../assets/portrait.png";
 
 export default function Actors({ id, categoryId, type, search, page }) {
     const { credits: data } = useMovie(id);
-    const { isLoading, isPreviousData, isError, error, data: actors } = data;
+    const { isLoading, isError, error, data: actors } = data;
     const [loadedMore, setLoadedMore] = useState(false);
     console.log(actors);
     let endUrl = ``;

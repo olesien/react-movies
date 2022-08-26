@@ -8,11 +8,11 @@ import SimilarMovies from "../SimilarMovies";
 
 import RenderDetails from "../renders/RenderDetails";
 import useMovieHistory from "../../hooks/useMovieHistory";
-import React, { useState, useEffect } from "react";
+import { useEffect } from "react";
 
 export default function Movie({ id, categoryId, search, page, type }) {
     const { movie: data } = useMovie(id);
-    const { isLoading, isPreviousData, isError, error, data: movie } = data;
+    const { isLoading, isError, error, data: movie } = data;
 
     const [prevMovies, changePrevMovies] = useMovieHistory();
     useEffect(() => {

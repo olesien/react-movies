@@ -6,13 +6,7 @@ import MovieList from "./MovieList";
 
 export default function ActorMovies({ id, categoryId, search, page, type }) {
     const { actorMovies: data } = useActor(id);
-    const {
-        isLoading,
-        isPreviousData,
-        isError,
-        error,
-        data: actorMovies,
-    } = data;
+    const { isLoading, isError, error, data: actorMovies } = data;
     if (isError) {
         return <WarningAlert errorMessage={error.message} />;
     }

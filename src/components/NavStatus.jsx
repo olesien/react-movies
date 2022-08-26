@@ -1,5 +1,5 @@
 import Breadcrumb from "react-bootstrap/Breadcrumb";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function NavStatus({ progress }) {
     return (

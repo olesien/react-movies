@@ -3,7 +3,7 @@ import { Button, Form } from "react-bootstrap";
 import { useSearchParams, NavLink, useNavigate } from "react-router-dom";
 
 export default function SearchBar() {
-    let [searchParams, setSearchParams] = useSearchParams();
+    let [searchParams] = useSearchParams();
     const initial = searchParams.get("search");
     const [search, setSearch] = useState(initial ? initial : "");
     let navigate = useNavigate();

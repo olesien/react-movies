@@ -1,18 +1,12 @@
 import { Container } from "react-bootstrap";
-import {
-    Link,
-    Route,
-    Routes,
-    useParams,
-    useSearchParams,
-} from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import Movie from "../components/subpages/Movie";
 
 import NavStatus from "../components/NavStatus";
 
 export default function MoviePage() {
     const { movieId } = useParams();
-    let [searchParams, setSearchParams] = useSearchParams();
+    let [searchParams] = useSearchParams();
     let page = searchParams.get("page");
     let categoryId = searchParams.get("categoryId");
     let search = searchParams.get("search");

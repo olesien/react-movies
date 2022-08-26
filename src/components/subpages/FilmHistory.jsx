@@ -2,7 +2,7 @@ import useMovieHistory from "../../hooks/useMovieHistory";
 import MovieList from "../MovieList";
 
 export default function FilmHistory() {
-    const [prevMovies, changePrevMovies] = useMovieHistory();
+    const [prevMovies] = useMovieHistory();
     console.log(prevMovies);
     return (
         <div>

@@ -8,10 +8,10 @@ export default function RenderTable({ columns, data }) {
     return (
         <Table striped {...getTableProps()}>
             <thead>
-                {headerGroups.map((headerGroup) => (
-                    <tr {...headerGroup.getHeaderGroupProps()}>
-                        {headerGroup.headers.map((column) => (
-                            <th {...column.getHeaderProps()}>
+                {headerGroups.map((headerGroup, index) => (
+                    <tr key={index} {...headerGroup.getHeaderGroupProps()}>
+                        {headerGroup.headers.map((column, index) => (
+                            <th key={index} {...column.getHeaderProps()}>
                                 {column.render("Header")}
                             </th>
                         ))}
@@ -19,13 +19,13 @@ export default function RenderTable({ columns, data }) {
                 ))}
             </thead>
             <tbody {...getTableBodyProps()}>
-                {rows.map((row, i) => {
+                {rows.map((row, index) => {
                     prepareRow(row);
 
                     return (
-                        <tr {...row.getRowProps()}>
-                            {row.cells.map((cell) => (
-                                <td {...cell.getCellProps()}>
+                        <tr key={index} {...row.getRowProps()}>
+                            {row.cells.map((cell, index) => (
+                                <td key={index} {...cell.getCellProps()}>
                                     {cell.render("Cell")}
                                 </td>
                             ))}

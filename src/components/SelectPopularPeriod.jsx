@@ -3,7 +3,7 @@ import Form from "react-bootstrap/Form";
 
 export default function SelectPopularPeriod({ popularPeriod }) {
     let [searchParams, setSearchParams] = useSearchParams();
-
+    console.log(searchParams);
     const changePeriod = (e) => {
         setSearchParams({ page: 1, "popular-period": e.target.value });
     };

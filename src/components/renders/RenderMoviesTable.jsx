@@ -68,14 +68,18 @@ export default function RenderMoviesTable({
         []
     );
     return (
-        <RenderTable
-            columns={columns}
-            data={results.map((movie) => {
-                return {
-                    ...movie,
-                    release_date: movie.release_date ? movie.release_date : "-",
-                };
-            })}
-        />
+        <div className="movie-table">
+            <RenderTable
+                columns={columns}
+                data={results.map((movie) => {
+                    return {
+                        ...movie,
+                        release_date: movie.release_date
+                            ? movie.release_date
+                            : "-",
+                    };
+                })}
+            />
+        </div>
     );
 }

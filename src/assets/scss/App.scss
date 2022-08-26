@@ -74,6 +74,12 @@
     margin: 0 4rem;
 }
 
+.movie-table {
+    * {
+        font-size: 0.95em;
+    }
+}
+
 @media all and (min-width: 750px) {
     /* CSS rules here for screens bigger than 750px */
     .movieContainer {
@@ -84,6 +90,11 @@
     }
     .center-block {
         flex-direction: row;
+    }
+    .movie-table {
+        * {
+            font-size: inherit;
+        }
     }
 }
 

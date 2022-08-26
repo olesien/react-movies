@@ -1,7 +1,7 @@
 @import "bootstrap/scss/bootstrap";
 
 .movie-img {
-    width: 10rem;
+    width: 7rem;
 }
 
 .actor-img {
@@ -10,7 +10,7 @@
 }
 
 .poster-img {
-    width: 10rem;
+    width: 6rem;
 }
 
 .center-block {
@@ -80,8 +80,7 @@
     }
 }
 
-@media all and (min-width: 750px) {
-    /* CSS rules here for screens bigger than 750px */
+@media all and (min-width: 1000px) {
     .movieContainer {
         flex-direction: row;
         > * {
@@ -91,10 +90,27 @@
     .center-block {
         flex-direction: row;
     }
+}
+
+@media all and (min-width: 750px) {
+    /* CSS rules here for screens bigger than 750px */
+
     .movie-table {
         * {
             font-size: inherit;
         }
+    }
+    .movie-img {
+        width: 10rem;
+    }
+
+    .actor-img {
+        height: 9rem;
+        width: auto;
+    }
+
+    .poster-img {
+        width: 10rem;
     }
 }
 

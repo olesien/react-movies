@@ -3,10 +3,6 @@ import Pagination from "react-bootstrap/Pagination";
 function AdvancedPagination({ currentPage, maxPages, newPage }) {
     return (
         <Pagination>
-            <Pagination.First
-                disabled={currentPage === 1}
-                onClick={() => newPage(1)}
-            />
             <Pagination.Prev
                 disabled={currentPage - 1 <= 0}
                 onClick={() => newPage(currentPage - 1)}
@@ -83,10 +79,6 @@ function AdvancedPagination({ currentPage, maxPages, newPage }) {
             <Pagination.Next
                 disabled={currentPage + 1 >= maxPages}
                 onClick={() => newPage(currentPage + 1)}
-            />
-            <Pagination.Last
-                disabled={currentPage === maxPages}
-                onClick={() => newPage(maxPages)}
             />
         </Pagination>
     );

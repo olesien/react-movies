@@ -4,7 +4,9 @@ import { useSearchParams, NavLink, useNavigate } from "react-router-dom";
 
 export default function SearchBar() {
     let [searchParams] = useSearchParams();
+    //Search bar to find movies you prefer
     const initial = searchParams.get("search");
+    //Set initial state if there isn't one already
     const [search, setSearch] = useState(initial ? initial : "");
     let navigate = useNavigate();
     const submit = (e) => {
@@ -12,7 +14,6 @@ export default function SearchBar() {
         if (search.length < 1) return;
         navigate(`search/${search}`);
     };
-    // console.log(search);
     return (
         <Form className="d-flex ps-2" onSubmit={submit}>
             <Form.Control

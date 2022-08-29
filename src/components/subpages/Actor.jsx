@@ -8,8 +8,8 @@ import BasicSpinner from "../BasicSpinner";
 export default function Actor({ id, categoryId, search, page, type }) {
     const { actor: data } = useActor(id);
     const { isLoading, isError, error, data: actor } = data;
-    console.log(actor);
 
+    //Return if it's error or loading
     if (isError) {
         return <WarningAlert errorMessage={error.message} />;
     }

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
 export default function useMovieHistory() {
+    //Fetch the last 10 movies from localstorage
     const [prevMovies, setPrevMovies] = useState(
         JSON.parse(localStorage.getItem("react-movies-history"))
     );
@@ -9,6 +10,7 @@ export default function useMovieHistory() {
         if (!newMovies) return;
         setPrevMovies(newMovies);
     };
+    //If prevmovies updates, update localstorage
     useEffect(() => {
         if (loading) return;
         localStorage.setItem(

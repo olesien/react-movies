@@ -2,6 +2,7 @@ import { useSearchParams } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 
 export default function SelectPopularPeriod({ popularPeriod }) {
+    //Popular period for Most Popular
     let [searchParams, setSearchParams] = useSearchParams();
     console.log(searchParams);
     const changePeriod = (e) => {

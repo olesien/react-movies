@@ -13,6 +13,7 @@
     width: 6rem;
 }
 
+//search bar
 .center-block {
     display: flex;
     justify-content: center;
@@ -27,6 +28,7 @@
     }
 }
 
+// Container for the movie page
 .movieContainer {
     margin-top: 2rem;
     display: flex;
@@ -71,6 +73,7 @@
     margin: 0 4rem;
 }
 
+// Table showing the list of the movies
 .movie-table {
     * {
         font-size: 0.95em;

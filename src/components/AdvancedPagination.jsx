@@ -1,6 +1,9 @@
 import Pagination from "react-bootstrap/Pagination";
 
 function AdvancedPagination({ currentPage, maxPages, newPage }) {
+    //Pagination used on most pages
+    //The idea here is that no page that is below 1 or above the max pages should be shown. I had originally intended that when you first instance was on page 1, you could click 1,2,3,4,5
+    //however I opted against this due to it being a bit more complicated and I focused on the other parts of the website.
     return (
         <Pagination>
             <Pagination.Prev
@@ -28,7 +31,6 @@ function AdvancedPagination({ currentPage, maxPages, newPage }) {
                     {currentPage - 2}
                 </Pagination.Item>
             )}
-            {/* <Pagination.Ellipsis disabled /> */}
             {currentPage - 1 <= 1 ? (
                 <></>
             ) : (

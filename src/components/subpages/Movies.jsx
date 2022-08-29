@@ -18,6 +18,7 @@ export default function Movies({ id }) {
 
     console.log(movies);
 
+    //Change the page if needed
     const changePage = (page) => {
         if (isLoading || isError || isPreviousData) {
             return;
@@ -25,6 +26,8 @@ export default function Movies({ id }) {
         console.log(page);
         setSearchParams({ page });
     };
+
+    //Return if it's error or loading
     if (isError) {
         return <WarningAlert errorMessage={error.message} />;
     }

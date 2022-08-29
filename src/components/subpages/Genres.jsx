@@ -8,7 +8,8 @@ import useGenres from "../../hooks/useGenres";
 export default function Genres() {
     const { isLoading, isError, error, data } = useGenres();
     const genres = data?.genres;
-    console.log(genres);
+
+    //Return if it's error or loading
     if (isError) {
         return <WarningAlert errorMessage={error.message} />;
     }

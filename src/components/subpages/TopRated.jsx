@@ -8,6 +8,7 @@ import useTopRated from "../../hooks/useTopRated";
 export default function TopRated() {
     let [searchParams, setSearchParams] = useSearchParams();
     let page = searchParams.get("page");
+    //load top rated
     const {
         isLoading,
         isPreviousData,
@@ -16,8 +17,7 @@ export default function TopRated() {
         data: movies,
     } = useTopRated(page);
 
-    console.log(movies);
-
+    //Change the page if needed
     const changePage = (page) => {
         if (isLoading || isError || isPreviousData) {
             return;
@@ -25,13 +25,14 @@ export default function TopRated() {
         console.log(page);
         setSearchParams({ page });
     };
+    //Return if it's error or loading
     if (isError) {
         return <WarningAlert errorMessage={error.message} />;
     }
     if (isLoading) {
         return <BasicSpinner />;
     }
-    //return <p>Hi</p>;
+
     return (
         <div>
             <div className="center-block">

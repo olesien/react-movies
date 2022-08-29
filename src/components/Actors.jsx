@@ -12,6 +12,7 @@ export default function Actors({ id, categoryId, type, search, page }) {
     const { isLoading, isError, error, data: actors } = data;
     const [loadedMore, setLoadedMore] = useState(false);
     console.log(actors);
+    //add end url, used for breadcrumb
     let endUrl = ``;
     if (type === "category") {
         endUrl = `&categoryId=${categoryId}`;

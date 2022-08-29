@@ -18,8 +18,7 @@ export default function MostPopular() {
         data: movies,
     } = useMostPopular(page, popularPeriod);
 
-    console.log(movies);
-
+    //Change the page if needed
     const changePage = (page) => {
         if (isLoading || isError || isPreviousData) {
             return;
@@ -30,6 +29,8 @@ export default function MostPopular() {
             "popular-period": popularPeriod ? popularPeriod : "1",
         });
     };
+
+    //Return if it's error or loading
     if (isError) {
         return <WarningAlert errorMessage={error.message} />;
     }

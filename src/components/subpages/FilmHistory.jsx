@@ -3,7 +3,6 @@ import MovieList from "../MovieList";
 
 export default function FilmHistory() {
     const [prevMovies] = useMovieHistory();
-    console.log(prevMovies);
     return (
         <div>
             Last 10 viewed films:

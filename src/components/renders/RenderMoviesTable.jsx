@@ -12,12 +12,15 @@ export default function RenderMoviesTable({
     type,
 }) {
     const results = movies.results;
+    //Set end url, used for breadcrumb
     let endUrl = ``;
     if (type === "category") {
         endUrl = `&categoryId=${categoryId}`;
     } else if (type === "search") {
         endUrl = `&search=${search}`;
     }
+
+    //Get columns used for react table..
     const columns = useMemo(
         () => [
             {
@@ -25,6 +28,7 @@ export default function RenderMoviesTable({
                 Cell: ({ row: { original: movie } }) => (
                     <Image
                         src={
+                            //Default to backdrop if it doesn't exist
                             movie.backdrop_path
                                 ? `https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`
                                 : backdropImg

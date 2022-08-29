@@ -15,6 +15,8 @@ export default function Movie({ id, categoryId, search, page, type }) {
     const { isLoading, isError, error, data: movie } = data;
 
     const [prevMovies, changePrevMovies] = useMovieHistory();
+
+    //When we have a movie loaded, set the previous movies in localstorage! This is then used in Home page as last 10.
     useEffect(() => {
         if (!movie) return;
         console.log(prevMovies);
@@ -25,9 +27,11 @@ export default function Movie({ id, categoryId, search, page, type }) {
         let newPrevMovies = prevMovies.filter(
             (prevMovie) => prevMovie.id != movie.id
         );
+        //If it's over 10 length, remove last one
         if (newPrevMovies.length > 10) {
             newPrevMovies.pop();
         }
+        //Add this one
         newPrevMovies.unshift(movie);
 
         changePrevMovies(newPrevMovies);
@@ -35,6 +39,7 @@ export default function Movie({ id, categoryId, search, page, type }) {
         console.log(newPrevMovies);
     }, [movie]);
 
+    //Return if it's error or loading
     if (isError) {
         return <WarningAlert errorMessage={error.message} />;
     }

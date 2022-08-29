@@ -7,13 +7,14 @@ import MovieList from "./MovieList";
 export default function ActorMovies({ id, categoryId, search, page, type }) {
     const { actorMovies: data } = useActor(id);
     const { isLoading, isError, error, data: actorMovies } = data;
+    //Return if it's error or loading
     if (isError) {
         return <WarningAlert errorMessage={error.message} />;
     }
     if (isLoading) {
         return <BasicSpinner />;
     }
-    console.log(actorMovies);
+
     return (
         <div>
             <h3>Actor Movies</h3>

@@ -4,6 +4,7 @@ import NavStatus from "../components/NavStatus";
 import Search from "../components/subpages/Search";
 
 export default function SearchPage() {
+    //search
     const { search } = useParams();
 
     return (

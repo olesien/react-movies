@@ -9,6 +9,7 @@ export default function RenderDetails({ data, misc, leftslot, rightslot }) {
                 <h1>{data.title}</h1>
                 <Image
                     src={
+                        //Default if image url is not found..
                         data.image_url
                             ? `https://image.tmdb.org/t/p/w500/${data.image_url}`
                             : backdropImg

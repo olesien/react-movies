@@ -12,6 +12,8 @@ import MostPopularPage from "./pages/MostPopularPage";
 import TopRatedPage from "./pages/TopRatedPage";
 import SearchPage from "./pages/SearchPage";
 import React from "react";
+
+//Initialize query client
 const queryClient = new QueryClient();
 function App() {
     return (

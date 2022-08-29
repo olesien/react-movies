@@ -16,8 +16,7 @@ export default function Search({ search }) {
         data: movies,
     } = useSearch(page, search);
 
-    console.log(movies);
-
+    //Change the page if needed
     const changePage = (page) => {
         if (isLoading || isError || isPreviousData) {
             return;
@@ -25,13 +24,14 @@ export default function Search({ search }) {
         console.log(page);
         setSearchParams({ page });
     };
+    //Return if it's error or loading
     if (isError) {
         return <WarningAlert errorMessage={error.message} />;
     }
     if (isLoading) {
         return <BasicSpinner />;
     }
-    //return <p>Hi</p>;
+
     if (movies.results.length < 1) {
         return <h1>Sorry but no movies could be found with this name!</h1>;
     }

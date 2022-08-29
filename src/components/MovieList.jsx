@@ -1,6 +1,7 @@
 import { Image } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 export default function MovieList({ movies, categoryId, type, search, page }) {
+    //set endurl
     let endUrl = ``;
     if (type === "category") {
         endUrl = `&categoryId=${categoryId}`;
